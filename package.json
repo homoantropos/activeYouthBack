@@ -4,7 +4,8 @@
   "description": "All about physical activity and sport for schoolChild and students",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "server": "nodemon index"
   },
   "keywords": [
     "physical",
@@ -16,7 +17,7 @@
     "university",
     "sport"
   ],
-  "author": "Sergii Antropov, Andrii Volovod",
+  "author": "Andrii Volovod <java2eemelkior@gmail.com>, Sergii Antropov, <homoantropos@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
