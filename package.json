@@ -1,0 +1,27 @@
+{
+  "name": "activeyouthback",
+  "version": "1.0.0",
+  "description": "All about physical activity and sport for schoolChild and students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "physical",
+    "activity",
+    "sport",
+    "youth",
+    "school",
+    "sport",
+    "university",
+    "sport"
+  ],
+  "author": "Sergii Antropov, Andrii Volovod",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
