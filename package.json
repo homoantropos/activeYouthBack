@@ -20,7 +20,11 @@
   "author": "Andrii Volovod <java2eemelkior@gmail.com>, Sergii Antropov, <homoantropos@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
