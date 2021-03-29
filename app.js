@@ -19,16 +19,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(require('cors')());
 
-app.use('./api/auth', authRoutes);
-app.use('./api/activities', activitiesRoutes);
-app.use('./api/eduentities', eduEntitiesRoutes);
-app.use('./api/expenses', expensesRoutes);
-app.use('./api/news', newsRoutes);
-app.use('./api/places', placesRoutes);
-app.use('./api/results', resultsRoutes);
-app.use('./api/schedule', scheduleRoutes);
-app.use('./api/statistic', statisticRoutes);
-app.use('./api/participants', participantsRoutes);
-app.use('./api/coaches', coachesRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/activities', activitiesRoutes);
+app.use('/api/eduentities', eduEntitiesRoutes);
+app.use('/api/expenses', expensesRoutes);
+app.use('/api/news', newsRoutes);
+app.use('/api/places', placesRoutes);
+app.use('/api/results', resultsRoutes);
+app.use('/api/schedule', scheduleRoutes);
+app.use('/api/statistic', statisticRoutes);
+app.use('/api/participants', participantsRoutes);
+app.use('/api/coaches', coachesRoutes);
 
 module.exports = app;
