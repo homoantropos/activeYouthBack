@@ -48,7 +48,7 @@ const statisticSchema = new Schema ({
     numberOfParticipantsFact: {
         countries: {
             type: Number,
-            required: true
+            default: 0
         },
         regions: {
             type: Number,
@@ -56,32 +56,32 @@ const statisticSchema = new Schema ({
         },
         educationEntity: {
             type: Number,
-            required: true
+            default: 0
         },
         sportsmen: {
             type: Number,
-            required: true
+            default: 0
         },
         coaches: {
             type: Number,
-            required: true
+            default: 0
         },
         referees: {
             type: Number,
-            required: true
+            default: 0
         },
         others: {
             type: Number,
-            required: true
+            default: 0
         },
         total: {
             type: Number,
-            required: true
+            default: 0
         }
     },
     personPerDayTotalFact: {
         type: Number,
-        required: true
+        default: 0
     }
 })
 

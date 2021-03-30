@@ -1,19 +1,43 @@
-module.exports.getAll = function(req, res) {
+const Result = require('../models/Result');
+const errorHandler = require('../utils/errorHandler');
 
+module.exports.getAll = async function(req, res) {
+    try {
+
+    } catch(e) {
+        errorHandler(res, e)
+    }
 }
 
-module.exports.getById = function(req, res) {
-
+module.exports.getById = async function(req, res) {
+    try {
+        const result = await Result.findById(req.params.id);
+        res.status(200).json(result);
+    } catch(e) {
+        errorHandler(res, e)
+    }
 }
 
-module.exports.create = function(req, res) {
+module.exports.create = async function(req, res) {
+    try {
 
+    } catch(e) {
+        errorHandler(res, e)
+    }
 }
 
-module.exports.remove = function (req, res) {
+module.exports.remove = async function (req, res) {
+    try {
 
+    } catch(e) {
+        errorHandler(res, e)
+    }
 }
 
-module.exports.update = function(req, res) {
+module.exports.update = async function(req, res) {
+    try {
 
+    } catch(e) {
+        errorHandler(res, e)
+    }
 }
