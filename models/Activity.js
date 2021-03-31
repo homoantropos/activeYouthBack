@@ -21,6 +21,10 @@ const activitySchema = new Schema ({
         kindOfActivity: {
             type: String,
             required: true
+        },
+        userId: {
+            type: String,
+            required: true
         }
 })
 

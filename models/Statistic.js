@@ -77,6 +77,10 @@ const statisticSchema = new Schema ({
         total: {
             type: Number,
             default: 0
+        },
+        userId: {
+            type: String,
+            required: true
         }
     },
     personPerDayTotalFact: {

@@ -10,7 +10,7 @@ const coachSchema = new Schema ({
         type: String,
         required: true
     },
-    fathename: {
+    fatherName: {
         type: String,
         required: true
     },

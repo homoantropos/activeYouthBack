@@ -20,7 +20,12 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
-
+        const news = await new News({
+            title: req.body.title,
+            date: req.body.date,
+            content: req.body.content
+        }).save();
+        res.status(201).json(news);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -28,7 +33,10 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function (req, res) {
     try {
-
+        await News.remove(req.params.id);
+        res.status(200).json({
+            message: 'Новину видалено з бази даних.'
+        });
     } catch(e) {
         errorHandler(res, e)
     }

@@ -20,7 +20,13 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
-
+        const coach = await new Coach({
+            name: req.body.name,
+            surname: req.body.surname,
+            fatherName: req.body.fatherName,
+            gender: req.body.gender
+        }).save();
+        res.status(201).json(coach);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -28,7 +34,10 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function (req, res) {
     try {
-
+        await Coach.remove(req.params.id);
+        res.status(200).json({
+            message: 'Тренера видалено з бази даних.'
+        });
     } catch(e) {
         errorHandler(res, e)
     }

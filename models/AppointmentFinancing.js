@@ -28,20 +28,24 @@ const appointmentFinancingSchema = new Schema ({
     expensesFact: {
         kekv2210: {
             type: Number,
-            required: true
+            default: 0
         },
         kekv2220: {
             type: Number,
-            required: true
+            default: 0
         },
         kekv2240: {
             type: Number,
-            required: true
+            default: 0
         },
         total: {
             type: Number,
-            required: true
+            default: 0
         },
+        userId: {
+            type: String,
+            required: true
+        }
     }
 })
 

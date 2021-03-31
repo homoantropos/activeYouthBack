@@ -32,6 +32,10 @@ const resultSchema = new Schema ({
     ratingPoints: {
         type: Number,
         required: true
+    },
+    userId: {
+        type: String,
+        required: true
     }
 })
 

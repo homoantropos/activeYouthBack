@@ -52,6 +52,10 @@ const appointmentSchema = new Schema({
         organiser: {
             type: String,
             required: true
+        },
+        userId: {
+            type: String,
+            required: true
         }
 })
 

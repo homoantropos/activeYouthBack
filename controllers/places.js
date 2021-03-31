@@ -20,7 +20,14 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
-
+         const place = await new Place({
+            country: req.body.country,
+            region: req.body.region,
+            town: req.body.town,
+            sportHallName: req.body.sportHallName,
+            address: req.body.address,
+        }).save();
+        res.status(201).json(place);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -28,7 +35,10 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function (req, res) {
     try {
-
+        await Place.remove(req.params.id);
+        res.status(200).json({
+            message: 'Місце проведення видалено з бази даних.'
+        });
     } catch(e) {
         errorHandler(res, e)
     }

@@ -23,7 +23,8 @@ module.exports.create = async function(req, res) {
         const statistic = await new Statistic({
             appointment: req.body.appointment.id,
             numberOfParticipantsPlan: req.body.numberOfParticipantsPlan,
-            personPerDayTotalPlan: req.body.personPerDayTotalPlan
+            personPerDayTotalPlan: req.body.personPerDayTotalPlan,
+            userId: req.user.id
         }).save();
         res.status(201).json(statistic);
     } catch(e) {
@@ -33,7 +34,10 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function(req, res) {
     try {
-
+        await Statistic.remove(req.params.id);
+        res.status(200).json({
+            message: 'Статистичні дані видалено з бази даних.'
+        });
     } catch(e) {
         errorHandler(res, e)
     }

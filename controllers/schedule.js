@@ -28,7 +28,10 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function (req, res) {
     try {
-
+        await Appointment.remove(req.params.id);
+        res.status(200).json({
+            message: 'Захід видалено з бази даних.'
+        });
     } catch(e) {
         errorHandler(res, e)
     }
