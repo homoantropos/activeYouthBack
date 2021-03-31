@@ -4,7 +4,8 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-
+        const participants = await Participant.find();
+        res.status(200).json(participants);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -39,7 +40,7 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function(req, res) {
     try {
-        await Participant.remove(req.params.id);
+        await Participant.remove({_id: req.params.id});
         res.status(200).json({
             message: 'Учасника видалено з бази даних.'
         });

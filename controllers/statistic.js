@@ -3,7 +3,8 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-
+        const statistic = Statistic.find();
+        res.status(200).json(statistic);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -34,7 +35,7 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function(req, res) {
     try {
-        await Statistic.remove(req.params.id);
+        await Statistic.remove({_id: req.params.id});
         res.status(200).json({
             message: 'Статистичні дані видалено з бази даних.'
         });

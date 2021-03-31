@@ -37,7 +37,7 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function (req, res) {
     try {
-        await Activity.remove(req.params.id);
+        await Activity.remove({_id: req.params.id});
         res.status(200).json({
             message: 'Активність видалена з бази даних.'
         });

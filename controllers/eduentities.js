@@ -3,7 +3,8 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-
+        const eduEntities = EduEntity.find();
+        res.status(200).json(eduEntities);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -34,7 +35,7 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function(req, res) {
     try {
-        await EduEntity.remove(req.params.id);
+        await EduEntity.remove({_id: req.params.id});
         res.status(200).json({
             message: 'Заклад освіти видалено з бази даних.'
         });

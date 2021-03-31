@@ -4,7 +4,8 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-
+        const expenses = AppointmentFinancing.find();
+        res.status(200).json(expenses);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -40,7 +41,7 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function(req, res) {
     try {
-        await AppointmentFinancing.remove(req.params.id);
+        await AppointmentFinancing.remove({_id: req.params.id});
         res.status(200).json({
             message: 'Витрати видалено з бази даних.'
         });

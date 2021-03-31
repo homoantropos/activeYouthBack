@@ -6,7 +6,8 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-
+        const results = Result.find();
+        res.status(200).json(results);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -44,7 +45,7 @@ module.exports.create = async function(req, res) {
 
 module.exports.remove = async function (req, res) {
     try {
-        await Result.remove(req.params.id);
+        await Result.remove({_id: req.params.id});
         res.status(200).json({
             message: 'Результат видалено з бази даних.'
         });
