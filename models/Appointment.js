@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 const appointmentSchema = new Schema({
         title: {
@@ -18,7 +19,7 @@ const appointmentSchema = new Schema({
             required: true
         },
         placeOfHolding: {
-          ref: 'places',
+            ref: 'places',
             type: Schema.Types.ObjectId
         },
         organizationsParticipants: {
@@ -55,7 +56,7 @@ const appointmentSchema = new Schema({
         },
         userId: {
             type: String,
-            required: true
+            default: ''
         }
 })
 
