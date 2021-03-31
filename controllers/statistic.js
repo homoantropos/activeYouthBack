@@ -45,7 +45,12 @@ module.exports.remove = async function(req, res) {
 
 module.exports.update = async function(req, res) {
     try {
-
+        const statistic = await Statistic.findByIdAndUpdate(
+            {_id: req.params.id},
+            {$set: req.body},
+            {new: true}
+        );
+        res.status(201).json(statistic);
     } catch(e) {
         errorHandler(res, e)
     }

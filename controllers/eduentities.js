@@ -45,7 +45,12 @@ module.exports.remove = async function(req, res) {
 
 module.exports.update = async function(req, res) {
     try {
-
+        const eduEntity = await EduEntity.findByIdAndUpdate(
+            {_id: req.params.id},
+            {$set: req.body},
+            {new: true}
+        );
+        res.status(201).json(eduEntity);
     } catch(e) {
         errorHandler(res, e)
     }

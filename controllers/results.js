@@ -55,7 +55,12 @@ module.exports.remove = async function (req, res) {
 
 module.exports.update = async function(req, res) {
     try {
-
+        const result = await Result.findByIdAndUpdate(
+            {_id: req.params.id},
+            {$set: req.body},
+            {new: true}
+        );
+        res.status(201).json(result);
     } catch(e) {
         errorHandler(res, e)
     }

@@ -3,7 +3,8 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-
+        const activities = await Activity.find();
+        res.status(200).json(activities);
     } catch(e) {
         errorHandler(res, e)
     }
@@ -45,9 +46,14 @@ module.exports.remove = async function (req, res) {
     }
 }
 
-module.exports.update = function(req, res) {
+module.exports.update = async function(req, res) {
     try {
-
+        const activity = await Activity.findByIdAndUpdate(
+            {_id: req.params.id},
+        {$set: req.body},
+        {new: true}
+        );
+        res.status(201).json(activity);
     } catch(e) {
         errorHandler(res, e)
     }
