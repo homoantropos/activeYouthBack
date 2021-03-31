@@ -18,7 +18,7 @@ const appointmentSchema = new Schema({
             type: Number,
             required: true
         },
-        placeOfHolding: {
+        place: {
             ref: 'places',
             type: Schema.Types.ObjectId
         },

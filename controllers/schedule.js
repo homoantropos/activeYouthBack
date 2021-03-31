@@ -1,10 +1,10 @@
 const Appointment = require('../models/Appointment');
-const Place = require('../models/Place')
+const Place = require('../models/Place');
 const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const schedule = Appointment.find();
+        const schedule = await Appointment.find();
         res.status(200).json(schedule);
     } catch(e) {
         errorHandler(res, e)
@@ -22,19 +22,21 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
-        const place = await new Place({
-            country: req.body.country,
-            region: req.body.region,
-            town: req.body.town,
-            sportHallName: req.body.sportHallName,
-            address: req.body.address
-        })
+        const place = await new Place(
+            {
+                country: req.body.place.country,
+                region: req.body.place.region,
+                town:  req.body.place.town,
+                sportHall: req.body.place.sportHallName,
+                address: req.body.place.address
+            },
+        ).save();
         const appointment = await new Appointment({
             title: req.body.title,
             startDate: req.body.startDate,
             finishDate: req.body.finishDate,
             duration: req.body.duration,
-            placeOfHolding: place,
+            place,
             organizationsParticipants: req.body.organizationsParticipants,
             character: req.body.character,
             KPKV: req.body.KPKV,
