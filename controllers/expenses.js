@@ -4,7 +4,7 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const expenses = AppointmentFinancing.find();
+        const expenses = await AppointmentFinancing.find();
         res.status(200).json(expenses);
     } catch(e) {
         errorHandler(res, e)

@@ -3,7 +3,7 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const statistic = Statistic.find();
+        const statistic = await Statistic.find();
         res.status(200).json(statistic);
     } catch(e) {
         errorHandler(res, e)

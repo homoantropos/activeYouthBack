@@ -3,7 +3,7 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const news = News.find();
+        const news = await News.find();
         res.status(200).json(news);
     } catch(e) {
         errorHandler(res, e)
