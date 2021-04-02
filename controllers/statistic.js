@@ -1,4 +1,5 @@
 const Statistic = require('../models/Statistic');
+const Appointment = require('../models/Appointment');
 const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
@@ -21,8 +22,9 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
+        const appointment = Appointment.findById(req.appointment._id)
         const statistic = await new Statistic({
-            appointment: req.body.appointment.id,
+            appointment,
             numberOfParticipantsPlan: req.body.numberOfParticipantsPlan,
             personPerDayTotalPlan: req.body.personPerDayTotalPlan,
             userId: req.user.id

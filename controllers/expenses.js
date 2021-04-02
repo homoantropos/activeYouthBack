@@ -22,7 +22,7 @@ module.exports.getById = async function(req, res) {
 
 module.exports.create = async function(req, res) {
     try {
-        const appointment = await Appointment.findById(req.body.appointment.id)
+        const appointment = await Appointment.findById({_id: req.body.appointment.id});
         const expenses = await new AppointmentFinancing({
             appointment,
             expensesPlan: {

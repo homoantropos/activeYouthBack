@@ -12,7 +12,7 @@ module.exports.getAll = async function(req, res) {
 
 module.exports.getById = async function(req, res) {
     try {
-        const place = await Place.findById(req.params.id);
+        const place = await Place.findById({_id: req.params.id});
         res.status(200).json(place);
     } catch(e) {
         errorHandler(res, e)
