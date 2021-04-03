@@ -3,7 +3,7 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const activities = await Activity.find();
+        const activities = await Activity.find({kindOfActivity: req.params.id});
         res.status(200).json(activities);
     } catch(e) {
         errorHandler(res, e)
@@ -27,7 +27,7 @@ module.exports.create = async function(req, res) {
             content: req.body.content,
             date: req.body.date,
             kindOfActivity: req.body.kindOfActivity,
-            userId: req.user.id
+            userId: req.user._id
         }).save();
         res.status(201).json(activity);
     } catch(e) {

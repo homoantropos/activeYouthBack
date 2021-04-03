@@ -45,7 +45,7 @@ module.exports.create = async function(req, res) {
             direction: req.body.direction,
             status: req.body.status,
             organiser: req.body.organiser,
-            userId: "affsfsf"
+            userId: req.user._id
             }
         ).save();
         res.status(201).json(appointment);

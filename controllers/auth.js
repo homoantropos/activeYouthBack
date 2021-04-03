@@ -19,12 +19,12 @@ module.exports.login = async function(req, res) {
            });
         } else {
             res.status(401).json({
-                message: 'Ви ввели невірний пароль. Повторіть спробу'
+                message: 'INVALID_PASSWORD'
             })
         }
     } else {
         res.status(404).json({
-            message: 'Користувач з таким емейл не існує. Перевірте правильність вводу'
+            message: 'EMAIL_NOT_FOUND'
         })
     }
 }
@@ -34,7 +34,7 @@ module.exports.register = async function(req, res) {
     const candidate = await User.findOne({email: req.body.email});
     if (candidate) {
         res.status(401).json({
-          message: 'Такий емайл вже занятий. Використайте інший'
+          message: 'INVALID_PASSWORD'
         })
     } else {
         const salt = bcrypt.genSaltSync(10);

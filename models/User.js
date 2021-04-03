@@ -10,14 +10,6 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    },
-    accessLevel: {
-        type: Number,
-        required: true
-    },
-    idToken: {
-        type: String,
-        required: true
     }
 })
 
