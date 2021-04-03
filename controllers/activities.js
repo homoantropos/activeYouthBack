@@ -3,7 +3,7 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.getAll = async function(req, res) {
     try {
-        const activities = await Activity.find({kindOfActivity: req.params.id});
+        const activities = await Activity.find();
         res.status(200).json(activities);
     } catch(e) {
         errorHandler(res, e)

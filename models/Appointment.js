@@ -55,8 +55,8 @@ const appointmentSchema = new Schema({
             required: true
         },
         userId: {
-            type: String,
-            default: ''
+            ref: 'users',
+            type: Schema.Types.ObjectId
         }
 })
 
