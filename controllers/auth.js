@@ -34,7 +34,7 @@ module.exports.register = async function(req, res) {
     const candidate = await User.findOne({email: req.body.email});
     if (candidate) {
         res.status(401).json({
-          message: 'INVALID_PASSWORD'
+          message: 'INVALID_EMAIL'
         })
     } else {
         const salt = bcrypt.genSaltSync(10);
@@ -42,9 +42,7 @@ module.exports.register = async function(req, res) {
         const user = new User(
             {
                 email: req.body.email,
-                password: bcrypt.hashSync(password, salt),
-                accessLevel: req.body.accessLevel,
-                idToken: req.body.idToken
+                password: bcrypt.hashSync(password, salt)
             }
         )
         try {

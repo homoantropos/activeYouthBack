@@ -27,7 +27,7 @@ module.exports.create = async function(req, res) {
                 country: req.body.place.country,
                 region: req.body.place.region,
                 town:  req.body.place.town,
-                sportHall: req.body.place.sportHallName,
+                sportHallName: req.body.place.sportHallName,
                 address: req.body.place.address
             },
         ).save();
