@@ -33,7 +33,7 @@ module.exports.login = async function(req, res) {
 module.exports.register = async function(req, res) {
     const candidate = await User.findOne({email: req.body.email});
     if (candidate) {
-        res.status(401).json({
+        res.status(409).json({
           message: 'INVALID_EMAIL'
         })
     } else {
@@ -51,5 +51,14 @@ module.exports.register = async function(req, res) {
         } catch(e) {
             errorHandler(res, e);
         }
+    }
+}
+
+module.exports.getAll = async function(req, res) {
+    try {
+        const users = await User.find();
+        res.status(200).json(users);
+    } catch(e) {
+        errorHandler(res, e)
     }
 }

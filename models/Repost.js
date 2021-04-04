@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const statisticSchema = new Schema ({
+const statisticSchema = new Schema({
     appointment: {
         ref: 'appointments',
         type: Schema.Types.ObjectId,
         required: true
     },
-    numberOfParticipantsPlan: {
+    membersPlan: {
         countries: {
             type: Number,
             required: true
@@ -45,7 +45,7 @@ const statisticSchema = new Schema ({
         type: Number,
         required: true
     },
-    numberOfParticipantsFact: {
+    membersFact: {
         countries: {
             type: Number,
             default: 0
@@ -89,4 +89,4 @@ const statisticSchema = new Schema ({
     }
 })
 
-module.exports = mongoose.model('statistics', statisticSchema)
+module.exports = mongoose.model('reports', reportSchema)

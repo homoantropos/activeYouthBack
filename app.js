@@ -13,7 +13,7 @@ const newsRoutes = require('./routes/news');
 const placesRoutes = require('./routes/places');
 const resultsRoutes = require('./routes/results');
 const scheduleRoutes = require('./routes/schedule');
-const statisticRoutes = require('./routes/statistic');
+const reportsRoutes = require('./routes/report');
 const participantsRoutes = require('./routes/participants');
 const coachesRoutes = require('./routes/coaches');
 
@@ -37,7 +37,7 @@ app.use('/api/news', newsRoutes);
 app.use('/api/places', placesRoutes);
 app.use('/api/results', resultsRoutes);
 app.use('/api/schedule', scheduleRoutes);
-app.use('/api/statistic', statisticRoutes);
+app.use('/api/reports', reportsRoutes);
 app.use('/api/participants', participantsRoutes);
 app.use('/api/coaches', coachesRoutes);
 
