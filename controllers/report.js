@@ -1,4 +1,4 @@
-const Report = require('../models/Repost');
+const Report = require('../models/Report');
 const Appointment = require('../models/Appointment');
 const errorHandler = require('../utils/errorHandler');
 

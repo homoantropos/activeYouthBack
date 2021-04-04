@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const statisticSchema = new Schema({
+const reportSchema = new Schema({
     appointment: {
         ref: 'appointments',
         type: Schema.Types.ObjectId,
